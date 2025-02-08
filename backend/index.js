@@ -27,4 +27,4 @@ app.get("/history", (req, res) => {
     res.json({ history: commandHistory });
 });
 
-app.listen(5000, () => console.log("Server shitting on port 5000"));
+app.listen(5000, () => console.log("Server running on port 5000"));

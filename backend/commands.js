@@ -6,14 +6,14 @@ const fakeFileSystem = {
     }
 };
 
-let currentPath = ["/", "home"]; // Start at `/home`
+let currentPath = ["/", "home"];
 
 function getCurrentFolder() {
     return currentPath.reduce((folder, key) => folder[key], fakeFileSystem);
 }
 
 function resetFileSystem() {
-    fakeFileSystem["/"].home = {}; // Reset `/home`
+    fakeFileSystem["/"].home = {};
     currentPath = ["/", "home"];
 }
 
@@ -23,7 +23,7 @@ const allowedCommands = {
         const contents = Object.keys(folder);
         return contents.length > 0 ? contents.join("\n") : "(empty)";
     },
-    pwd: () => currentPath.join("/").replace("//", "/"), // Clean up root path
+    pwd: () => currentPath.join("/").replace("//", "/"),
     whoami: () => process.env.USERNAME || process.env.USER || "user",
     echo: (args) => args.join(" "),
 
@@ -31,7 +31,7 @@ const allowedCommands = {
         if (args.length === 0) return "Error: Missing directory name.";
         const folder = getCurrentFolder();
         if (folder[args[0]]) return "Error: Directory already exists.";
-        folder[args[0]] = {}; // Create new folder
+        folder[args[0]] = {};
         return `Directory '${args[0]}' created.`;
     },
 
@@ -99,7 +99,7 @@ const allowedCommands = {
     },
 
     uname: () => "Linux version 5.10.16 (fake-uname)",
-    history: () => "History feature not implemented yet.",
+    // history: () => "History feature not implemented yet.",
 };
 
 function getCommand(cmd, args) {
