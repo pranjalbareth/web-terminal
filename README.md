@@ -1,4 +1,4 @@
-# 🐧 Kiwi - Web Terminal
+# 🥝 Kiwi - Web Terminal
 
 Kiwi is a web-based Linux terminal emulator built with React.js and Node.js. It simulates a fake Linux terminal environment, allowing users to execute basic Linux commands directly from their browser. Whether you're a student, a beginner, or just someone who loves the Linux CLI, Kiwi provides an intuitive and interactive way to practice command & learn.
 
