@@ -124,10 +124,6 @@ const allowedCommands = {
 <span style='color:#ffb500'>📜 Utilities:</span>
 <span style='color:rgb(255, 230, 0)'>echo &lt;text&gt;</span>       <span style='color:#fff4c2;'>Print text to terminal</span>
 <span style='color:rgb(255, 230, 0)'>cat &lt;file&gt;</span>        <span style='color:#fff4c2;'>Display file contents</span>
-<span style='color:rgb(255, 230, 0)'>history</span>           <span style='color:#fff4c2;'>Show command history</span>
-<span style='color:rgb(255, 230, 0)'>reset</span>             <span style='color:#fff4c2;'>Clear all files and reset home directory</span>
-
-<span style='color:#ffb500'>💡 Tip: Use 'cd home' to return to home anytime!</span>
 `;
     }
 };

@@ -23,11 +23,11 @@ function Terminal() {
         if (!command.trim()) return;
         try {
             const res = await axios.post("https://web-terminal-dwo9.onrender.com/run", { input: command });
-            setOutput([...output, `<span style='color: #00FF00'>pranjal@root:~$</span> ${command}`, `<span>${res.data.output}</span>`]);
+            setOutput([...output, `<span style='color: #00FF00'>pranjal@kiwi:~$</span> ${command}`, `<span>${res.data.output}</span>`]);
             setHistory([...history, { command, output: res.data.output }]);
             setCommand("");
         } catch (err) {
-            setOutput([...output, `<span style='color: #00FF00'>pranjal@root:~$</span> ${command}`, `<span>Error running command!</span>`]);
+            setOutput([...output, `<span style='color: #00FF00'>pranjal@kiwi:~$</span> ${command}`, `<span>Error running command!</span>`]);
         }
     };
 
@@ -45,10 +45,10 @@ function Terminal() {
             overflowY: "auto"
         }} ref={terminalRef}>
             {output.map((line, index) => (
-                <pre style={{ margin: "0px" }} key={index} dangerouslySetInnerHTML={{ __html: line }}></pre>
+                <pre style={{ margin: "10px 0 0 0" }} key={index} dangerouslySetInnerHTML={{ __html: line }}></pre>
             ))}
-            <div>
-                <span style={{ color: "#00FF00" }}>pranjal@root:~$ </span>
+            <div style={{ margin: "10px 0 0 0" }}>
+                <span style={{ color: "#00FF00" }}>pranjal@kiwi:~$ </span>
                 <input
                     style={{
                         backgroundColor: "black",
