@@ -8,7 +8,7 @@ function Terminal() {
     const terminalRef = useRef(null);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/history")
+        axios.get("https://web-terminal-dwo9.onrender.com/history")
             .then(res => setHistory(res.data.history))
             .catch(err => console.error(err));
     }, []);
@@ -22,7 +22,7 @@ function Terminal() {
     const runCommand = async () => {
         if (!command.trim()) return;
         try {
-            const res = await axios.post("http://localhost:5000/run", { input: command });
+            const res = await axios.post("https://web-terminal-dwo9.onrender.com/run", { input: command });
             setOutput([...output, `<span style='color: #00FF00'>pranjal@root:~$</span> ${command}`, `<span>${res.data.output}</span>`]);
             setHistory([...history, { command, output: res.data.output }]);
             setCommand("");
