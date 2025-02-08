@@ -6,14 +6,14 @@ const fakeFileSystem = {
     }
 };
 
-let currentPath = ["/", "home"];
+let currentPath = ["/", "home"]; // Start at `/home`
 
 function getCurrentFolder() {
     return currentPath.reduce((folder, key) => folder[key], fakeFileSystem);
 }
 
 function resetFileSystem() {
-    fakeFileSystem["/"].home = {};
+    fakeFileSystem["/"].home = {}; // Reset `/home`
     currentPath = ["/", "home"];
 }
 
@@ -23,7 +23,7 @@ const allowedCommands = {
         const contents = Object.keys(folder);
         return contents.length > 0 ? contents.join("\n") : "(empty)";
     },
-    pwd: () => currentPath.join("/").replace("//", "/"),
+    pwd: () => currentPath.join("/").replace("//", "/"), // Clean up root path
     whoami: () => process.env.USERNAME || process.env.USER || "user",
     echo: (args) => args.join(" "),
 
@@ -31,7 +31,7 @@ const allowedCommands = {
         if (args.length === 0) return "Error: Missing directory name.";
         const folder = getCurrentFolder();
         if (folder[args[0]]) return "Error: Directory already exists.";
-        folder[args[0]] = {};
+        folder[args[0]] = {}; // Create new folder
         return `Directory '${args[0]}' created.`;
     },
 
@@ -99,7 +99,34 @@ const allowedCommands = {
     },
 
     uname: () => "Linux version 5.10.16 (fake-uname)",
-    // history: () => "History feature not implemented yet.",
+
+    help: () => {
+        return `
+Available Commands:
+---------------------------------------------
+📂 File & Directory Management:
+ls                List files in the current directory
+pwd               Show the current directory path
+mkdir &lt;dir&gt;       Create a new directory
+rmdir &lt;dir&gt;       Remove an empty directory
+touch &lt;file&gt;      Create a new file
+rm &lt;file&gt;         Remove a file
+
+📌 Navigation:
+cd &lt;dir&gt;          Change directory
+cd..              Go back one directory
+
+🖥️ System Info:
+whoami            Show the current user
+uname             Show system information
+
+📜 Utilities:
+echo &lt;text&gt;       Print text to terminal
+cat &lt;file&gt;        Display file contents
+
+💡 Tip: Use 'cd home' to return to home anytime!
+`;
+    }
 };
 
 function getCommand(cmd, args) {
