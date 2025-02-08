@@ -99,32 +99,35 @@ const allowedCommands = {
     },
 
     uname: () => "Linux version 5.10.16 (fake-uname)",
+    history: () => "History feature not implemented yet.",
 
     help: () => {
         return `
-Available Commands:
----------------------------------------------
-📂 File & Directory Management:
-ls                List files in the current directory
-pwd               Show the current directory path
-mkdir &lt;dir&gt;       Create a new directory
-rmdir &lt;dir&gt;       Remove an empty directory
-touch &lt;file&gt;      Create a new file
-rm &lt;file&gt;         Remove a file
+<span style='color:#ffb500'>Available Commands:</span>
+<span style='color:#ffb500'>---------------------------------------------</span>
+<span style='color:#ffb500'>📂 File & Directory Management:</span>
+<span style='color:rgb(255, 230, 0)'>ls</span>                <span style='color:#fff4c2;'>List files in the current directory</span>
+<span style='color:rgb(255, 230, 0)'>pwd</span>               <span style='color:#fff4c2;'>Show the current directory path</span>
+<span style='color:rgb(255, 230, 0)'>mkdir &lt;dir&gt;</span>       <span style='color:#fff4c2;'>Create a new directory</span>
+<span style='color:rgb(255, 230, 0)'>rmdir &lt;dir&gt;</span>       <span style='color:#fff4c2;'>Remove an empty directory</span>
+<span style='color:rgb(255, 230, 0)'>touch &lt;file&gt;</span>      <span style='color:#fff4c2;'>Create a new file</span>
+<span style='color:rgb(255, 230, 0)'>rm &lt;file&gt;</span>         <span style='color:#fff4c2;'>Remove a file</span>
 
-📌 Navigation:
-cd &lt;dir&gt;          Change directory
-cd..              Go back one directory
+<span style='color:#ffb500'>📌 Navigation:</span>
+<span style='color:rgb(255, 230, 0)'>cd &lt;dir&gt;</span>          <span style='color:#fff4c2;'>Change directory</span>
+<span style='color:rgb(255, 230, 0)'>cd..</span>              <span style='color:#fff4c2;'>Go back one directory</span>
 
-🖥️ System Info:
-whoami            Show the current user
-uname             Show system information
+<span style='color:#ffb500'>🖥️ System Info:</span>
+<span style='color:rgb(255, 230, 0)'>whoami</span>            <span style='color:#fff4c2;'>Show the current user</span>
+<span style='color:rgb(255, 230, 0)'>uname</span>             <span style='color:#fff4c2;'>Show system information</span>
 
-📜 Utilities:
-echo &lt;text&gt;       Print text to terminal
-cat &lt;file&gt;        Display file contents
+<span style='color:#ffb500'>📜 Utilities:</span>
+<span style='color:rgb(255, 230, 0)'>echo &lt;text&gt;</span>       <span style='color:#fff4c2;'>Print text to terminal</span>
+<span style='color:rgb(255, 230, 0)'>cat &lt;file&gt;</span>        <span style='color:#fff4c2;'>Display file contents</span>
+<span style='color:rgb(255, 230, 0)'>history</span>           <span style='color:#fff4c2;'>Show command history</span>
+<span style='color:rgb(255, 230, 0)'>reset</span>             <span style='color:#fff4c2;'>Clear all files and reset home directory</span>
 
-💡 Tip: Use 'cd home' to return to home anytime!
+<span style='color:#ffb500'>💡 Tip: Use 'cd home' to return to home anytime!</span>
 `;
     }
 };
