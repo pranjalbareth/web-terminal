@@ -11,7 +11,6 @@ Kiwi comes with several features designed to enhance the terminal experience:
 
 - **Simulated Linux Commands**: Supports basic commands like `ls`, `cd`, `mkdir`, `rmdir`, `touch`, `rm`, `cat`, `pwd`, and more.
 - **Filesystem Emulation**: A virtual file system with standard Linux directories (`/bin`, `/etc`, `/home`, etc.).
-- **Themed & Interactive UI**: A visually appealing interface designed for ease of use.
 - **Help Command**: Use `help` to get a structured, two-column list of available commands and their descriptions.
 
 ### 💻 Technologies Used
@@ -21,7 +20,6 @@ Kiwi is built using modern web technologies:
 - **React.js** (Frontend)
 - **Node.js** (Backend for command processing)
 - **Local Storage** (To simulate persistent files and directories)
-- **Styled Components** (For theming and styling)
 
 ### 🛠️ Commands Supported
 
