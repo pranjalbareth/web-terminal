@@ -1,17 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import axios from "axios";
+import getCommand from "./commands.js";
 
 function Terminal() {
     const [command, setCommand] = useState("");
     const [output, setOutput] = useState([]);
     const [history, setHistory] = useState([]);
     const terminalRef = useRef(null);
-
-    useEffect(() => {
-        axios.get("https://web-terminal-dwo9.onrender.com/history")
-            .then(res => setHistory(res.data.history))
-            .catch(err => console.error(err));
-    }, []);
 
     useEffect(() => {
         if (terminalRef.current) {
@@ -22,12 +16,20 @@ function Terminal() {
     const runCommand = async () => {
         if (!command.trim()) return;
         try {
-            const res = await axios.post("https://web-terminal-dwo9.onrender.com/run", { input: command });
-            setOutput([...output, `<span style='color: #00FF00'>pranjal@kiwi:~$</span> ${command}`, `<span>${res.data.output}</span>`]);
-            setHistory([...history, { command, output: res.data.output }]);
+
+            const parts = command.trim().split(" ");
+            const cmd = parts[0];
+            const args = parts.slice(1)
+            const res = getCommand(cmd, args);
+
+            if (res == null) throw new Error("Not a valid command.");
+
+            setOutput([...output, `<span style='color: #00FF00'>pranjal@kiwi:~$</span> ${command}`, `<span>${res}</span>`]);
+            setHistory([...history, { command, output: res }]);
             setCommand("");
         } catch (err) {
-            setOutput([...output, `<span style='color: #00FF00'>pranjal@kiwi:~$</span> ${command}`, `<span>Error running command!</span>`]);
+            setOutput([...output, `<span style='color: #00FF00'>pranjal@kiwi:~$</span> ${command}`, `<span>Error: Command not found! This project is still in works ⚠</span>`]);
+            setCommand("");
         }
     };
 
