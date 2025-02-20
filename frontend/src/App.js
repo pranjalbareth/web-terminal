@@ -1,5 +1,5 @@
 import React from "react";
-import Terminal from "./Terminal";
+import Terminal from "./Terminal.js";
 
 function App() {
   return (

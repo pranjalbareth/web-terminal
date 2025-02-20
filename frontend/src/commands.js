@@ -132,4 +132,4 @@ function getCommand(cmd, args) {
     return allowedCommands[cmd] ? allowedCommands[cmd](args) : null;
 }
 
-module.exports = { getCommand };
+export default getCommand ;
